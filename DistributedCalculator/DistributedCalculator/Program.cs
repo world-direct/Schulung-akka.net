@@ -1,4 +1,5 @@
-﻿using Akka.Actor;
+﻿using System;
+using Akka.Actor;
 using DistributedCalculator.Actors;
 using DistributedCalculator.Messages;
 
@@ -7,8 +8,10 @@ namespace DistributedCalculator {
         private static void Main(string[] args) {
             using (var system = ActorSystem.Create("CalculationSystem")) {
                 var calculator = system.ActorOf(Props.Create<CalculatorActor>(), "calculator");
-                calculator.Tell(new AddMessage(4, 6));
-
+                var random = new Random(100);
+                while (Console.ReadLine() != "c") {
+                    calculator.Tell(new AddMessage(random.Next(), random.Next()));
+                }
                 system.WhenTerminated.Wait();
             }
         }
