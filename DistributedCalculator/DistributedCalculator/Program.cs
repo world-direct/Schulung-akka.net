@@ -12,6 +12,7 @@ namespace DistributedCalculator {
                 while (Console.ReadLine() != "c") {
                     calculator.Tell(new AddMessage(random.Next(), random.Next()));
                 }
+                system.Terminate();
                 system.WhenTerminated.Wait();
             }
         }
