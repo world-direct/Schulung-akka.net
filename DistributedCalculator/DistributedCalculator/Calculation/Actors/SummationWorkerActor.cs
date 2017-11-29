@@ -8,15 +8,15 @@ namespace SharedCalculation.BusinessDomain.Calculation.Actors
 
     
         public SummationWorkerActor() {
-            Receive<AddCommandCommandMessage>(x => HandleAddMessage(x));
+            Receive<AddCommandMessage>(x => HandleAddMessage(x));
         }
 
    
-        private void HandleAddMessage(AddCommandCommandMessage addCommandCommandMessage) {
+        private void HandleAddMessage(AddCommandMessage addCommandMessage) {
 
-            Console.WriteLine($"Ich berechne die Aufgabe {addCommandCommandMessage.Summand1}+{addCommandCommandMessage.Summand2}");
-            var result = addCommandCommandMessage.Summand1 + addCommandCommandMessage.Summand2;
-            addCommandCommandMessage.ResultReceiver.Tell(new ResultCalculatedEventMessage(result, addCommandCommandMessage));
+            //Console.WriteLine($"Ich berechne die Aufgabe {addCommandMessage.Summand1}+{addCommandMessage.Summand2}");
+            var result = addCommandMessage.Summand1 + addCommandMessage.Summand2;
+            addCommandMessage.ResultReceiver.Tell(new ResultCalculatedEventMessage(result, addCommandMessage));
         }
     }
 }

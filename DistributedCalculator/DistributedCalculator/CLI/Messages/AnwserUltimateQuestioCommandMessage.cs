@@ -8,5 +8,7 @@ namespace DistributedCalculator.CLI.Messages {
         }
 
         public IActorRef ResultReceiver { get; }
+
+        public string QuestionDescription => "Die Frage nach Frage nach dem Leben, dem Universum und dem ganzen Rest";
     }
 }

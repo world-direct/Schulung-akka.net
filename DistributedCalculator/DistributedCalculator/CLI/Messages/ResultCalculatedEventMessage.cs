@@ -1,9 +1,9 @@
 ﻿namespace DistributedCalculator.CLI.Messages {
     public class ResultCalculatedEventMessage {
         public double Result { get; }
-        public object command { get; }
+        public ICalculationCommandMessage command { get; }
 
-        public ResultCalculatedEventMessage(double result, object command) {
+        public ResultCalculatedEventMessage(double result, ICalculationCommandMessage command) {
             Result = result;
             this.command = command;
         }

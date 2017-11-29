@@ -59,7 +59,7 @@
     <Compile Include="CLI\Messages\ResultNotCachedEventMessage.cs" />
     <Compile Include="Calculation\Actors\SummationWorkerActor.cs" />
     <Compile Include="Calculation\Actors\UltimateQuestionofLifeWorker.cs" />
-    <Compile Include="CLI\Messages\AddCommandCommandMessage.cs" />
+    <Compile Include="CLI\Messages\AddCommandMessage.cs" />
     <Compile Include="CLI\Messages\ResultCalculatedEventMessage.cs" />
     <Compile Include="CLI\Messages\ICalculationCommandMessage.cs" />
     <Compile Include="CLI\Messages\AnwserUltimateQuestioCommandMessage.cs" />

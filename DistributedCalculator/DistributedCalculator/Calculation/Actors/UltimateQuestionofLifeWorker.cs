@@ -18,7 +18,7 @@ namespace SharedCalculation.BusinessDomain.Calculation.Actors
     
         private void HandleUltimateQuestion(AnwserUltimateQuestioCommandMessage addMessage) {
 
-            Console.WriteLine($"Ich berechne die Frage nach dem Leben, dem Universum und dem ganzen Rest");
+            //Console.WriteLine($"Ich berechne die Frage nach dem Leben, dem Universum und dem ganzen Rest");
             // simuliere lange berechnung
               Thread.Sleep(TimeSpan.FromSeconds(3));
             addMessage.ResultReceiver.Tell(new ResultCalculatedEventMessage(42, addMessage));

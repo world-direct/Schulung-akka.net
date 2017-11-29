@@ -23,10 +23,8 @@ namespace SharedCalculation.BusinessDomain.CLI
      
 
         private void HandleCalculationResult(ResultCalculatedEventMessage x) {
-            Console.WriteLine($"Result is {x.Result}");
-
-            Self.Tell(new AskUserForInputCommandMessage("Eine neue Frage"));
-
+            Console.WriteLine($"Ergebnis von \"{x.command.QuestionDescription}\" ist {x.Result}");
+            
         }
 
         private void HandleInputParsed(InputParsedEventMessage inputParsedEventMessage) {
@@ -35,7 +33,7 @@ namespace SharedCalculation.BusinessDomain.CLI
             switch (inputParsedEventMessage.Command) {
 
                 case InputParsedEventMessage.CommandType.Add:
-                    calculator.Tell(new AddCommandCommandMessage(inputParsedEventMessage.Operand1, inputParsedEventMessage.Operand2, Self));
+                    calculator.Tell(new AddCommandMessage(inputParsedEventMessage.Operand1, inputParsedEventMessage.Operand2, Self));
                     break;
                 case InputParsedEventMessage.CommandType.UltimateQuestion:
                     calculator.Tell(new AnwserUltimateQuestioCommandMessage(Self));
@@ -43,7 +41,10 @@ namespace SharedCalculation.BusinessDomain.CLI
                 case InputParsedEventMessage.CommandType.InvalidCommand:
                     Self.Tell(new AskUserForInputCommandMessage("Input fehlerhaft. Probieren Sie es nochmals: "));
                     return;
+
             }
+            Self.Tell(new AskUserForInputCommandMessage("Eine weitere Frage: "));
+
         }
 
 

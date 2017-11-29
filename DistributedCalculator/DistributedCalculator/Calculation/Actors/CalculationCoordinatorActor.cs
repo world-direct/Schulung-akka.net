@@ -14,7 +14,7 @@ namespace SharedCalculation.BusinessDomain.Calculation.Actors {
             Context.ActorOf(Props.Create<SummationWorkerActor>(), SumCalculationName);
             Context.ActorOf(Props.Create<UltimateQuestionLifeWorker>(), UltimateQuestionWorker);
             
-            Receive<AddCommandCommandMessage>(x => Context.Child(SumCalculationName).Forward(x));
+            Receive<AddCommandMessage>(x => Context.Child(SumCalculationName).Forward(x));
             Receive<AnwserUltimateQuestioCommandMessage>(x => Context.Child(UltimateQuestionWorker).Forward(x));
         }
 

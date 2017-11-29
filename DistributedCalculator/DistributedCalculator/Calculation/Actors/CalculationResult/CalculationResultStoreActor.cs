@@ -12,7 +12,7 @@
 //        private Dictionary<string, double> cachedResults = new Dictionary<string, double>();
 
 //        public CalculationResultStoreActor() {
-//            Receive<AddCommandCommandMessage>(x => HandleGetResultFromCacheAdd(x));
+//            Receive<AddCommandMessage>(x => HandleGetResultFromCacheAdd(x));
 //            Receive<AnwserUltimateQuestioCommandMessage>(x => HandleUltimateQuestion(x));
 //            Receive<ResultCalculatedEventMessage>(x => HandleCalculationResult(x));
 
@@ -28,8 +28,8 @@
 //        }
 
 //        private void HandleCalculationResult(ResultCalculatedEventMessage resultCalculatedEventMessage) {
-//            if (resultCalculatedEventMessage.command is AddCommandCommandMessage) {
-//                var addMessage = resultCalculatedEventMessage.command as AddCommandCommandMessage;
+//            if (resultCalculatedEventMessage.command is AddCommandMessage) {
+//                var addMessage = resultCalculatedEventMessage.command as AddCommandMessage;
 //                var key = $"add_{addMessage.Summand1}_{addMessage.Summand2}";
 //                cachedResults.AddOrSet(key, resultCalculatedEventMessage.Result);
 //            }
@@ -40,7 +40,7 @@
 //            }
 //        }
 
-//        private void HandleGetResultFromCacheAdd(AddCommandCommandMessage add) {
+//        private void HandleGetResultFromCacheAdd(AddCommandMessage add) {
 //            var key = $"add_{add.Summand1}_{add.Summand2}";
 //            HandleCalculationWithCacheKey(add, key);
 //        }
