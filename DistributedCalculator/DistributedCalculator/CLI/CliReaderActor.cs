@@ -4,7 +4,9 @@ using DistributedCalculator.CLI.Messages;
 using SharedCalculation.BusinessDomain.CLI.Messages;
 
 namespace SharedCalculation.BusinessDomain.CLI {
+    
     public class CliReaderActor : ReceiveActor {
+        
         private static readonly string CLI_COMMAND_PARSER_NAME = "commandParser";
 
         public CliReaderActor()
@@ -13,7 +15,6 @@ namespace SharedCalculation.BusinessDomain.CLI {
             
             Receive<AskUserForInputCommandMessage>(x => HandleAksUserForInput(x));
             Receive<InputParsedEventMessage>(x => Context.Parent.Forward(x));
-            
         }
 
         protected override SupervisorStrategy SupervisorStrategy() {
@@ -22,7 +23,6 @@ namespace SharedCalculation.BusinessDomain.CLI {
                     Double.MaxValue, Double.MaxValue));
                 return Directive.Restart;
             });
-            
         }
 
         private void HandleAksUserForInput(AskUserForInputCommandMessage message) {
