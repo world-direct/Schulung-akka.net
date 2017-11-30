@@ -1,9 +1,9 @@
 ﻿using System;
 using Akka.Actor;
 using Akka.Routing;
-using DistributedCalculator.CLI.Messages;
+using DistributedCalculator.Messages;
 
-namespace DistributedCalculator.Calculation.Actors {
+namespace DistributedCalculator.Actors {
     public class CalculationCoordinatorActor : ReceiveActor {
 
         private static readonly string SumCalculationName = "summationWorker";

@@ -53,24 +53,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Calculation\Actors\CalculationCoordinatorActor.cs" />
-    <Compile Include="Calculation\Actors\CalculationResult\CalculationResultStoreActor.cs" />
-    <Compile Include="CLI\Messages\AskUserForInputMessage.cs" />
-    <Compile Include="CLI\Messages\ResultNotCachedEventMessage.cs" />
-    <Compile Include="Calculation\Actors\SummationWorkerActor.cs" />
-    <Compile Include="Calculation\Actors\UltimateQuestionofLifeWorker.cs" />
-    <Compile Include="CLI\Messages\AddCommandMessage.cs" />
-    <Compile Include="CLI\Messages\ResultCalculatedEventMessage.cs" />
-    <Compile Include="CLI\Messages\ICalculationCommandMessage.cs" />
-    <Compile Include="CLI\Messages\AnwserUltimateQuestioCommandMessage.cs" />
-    <Compile Include="CLI\CliClientActor.cs" />
-    <Compile Include="CLI\CliCommandParserActor.cs" />
-    <Compile Include="CLI\CliReaderActor.cs" />
-    <Compile Include="CLI\Messages\ParseCliInputCommandMessage.cs" />
-    <Compile Include="CLI\Messages\InputParsedEventMessage.cs" />
+    <Compile Include="Actors\CalculationCoordinatorActor.cs" />
+    <Compile Include="Messages\AskUserForInputMessage.cs" />
+    <Compile Include="Messages\ResultNotCachedEventMessage.cs" />
+    <Compile Include="Actors\SummationWorkerActor.cs" />
+    <Compile Include="Actors\UltimateQuestionofLifeWorker.cs" />
+    <Compile Include="Messages\AddCommandMessage.cs" />
+    <Compile Include="Messages\ResultCalculatedEventMessage.cs" />
+    <Compile Include="Messages\ICalculationCommandMessage.cs" />
+    <Compile Include="Messages\AnwserUltimateQuestioCommandMessage.cs" />
+    <Compile Include="Actors\CliClientActor.cs" />
+    <Compile Include="Actors\CliCommandParserActor.cs" />
+    <Compile Include="Actors\CliReaderActor.cs" />
+    <Compile Include="Messages\ParseCliInputCommandMessage.cs" />
+    <Compile Include="Messages\InputParsedEventMessage.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utility\ImmutableAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

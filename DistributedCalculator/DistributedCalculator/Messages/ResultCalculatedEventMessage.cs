@@ -1,4 +1,4 @@
-﻿namespace DistributedCalculator.CLI.Messages {
+﻿namespace DistributedCalculator.Messages {
     public class ResultCalculatedEventMessage {
         public double Result { get; }
         public ICalculationCommandMessage command { get; }

@@ -1,8 +1,8 @@
 ﻿using System;
 using Akka.Actor;
-using DistributedCalculator.CLI.Messages;
+using DistributedCalculator.Messages;
 
-namespace DistributedCalculator.CLI {
+namespace DistributedCalculator.Actors {
     public class CliCommandParserActor : ReceiveActor {
         public CliCommandParserActor() {
             Receive<ParseCliInputCommandMessage>(x => HandleParseCliInput(x));

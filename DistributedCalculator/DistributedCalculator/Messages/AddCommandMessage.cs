@@ -1,6 +1,6 @@
 ﻿using Akka.Actor;
 
-namespace DistributedCalculator.CLI.Messages {
+namespace DistributedCalculator.Messages {
 
     public sealed class AddCommandMessage : ICalculationCommandMessage {
         public AddCommandMessage(double summand1, double summand2, IActorRef resultReceiver) {

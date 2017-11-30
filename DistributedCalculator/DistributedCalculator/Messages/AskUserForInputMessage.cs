@@ -1,6 +1,4 @@
-﻿using Akka.Actor;
-
-namespace DistributedCalculator.CLI.Messages
+﻿namespace DistributedCalculator.Messages
 {
         
         public sealed class AskUserForInputCommandMessage {
