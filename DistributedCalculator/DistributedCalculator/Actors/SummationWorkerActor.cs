@@ -1,7 +1,7 @@
 ﻿using Akka.Actor;
-using DistributedCalculator.CLI.Messages;
+using DistributedCalculator.Messages;
 
-namespace DistributedCalculator.Calculation.Actors
+namespace DistributedCalculator.Actors
 {
     public class SummationWorkerActor : ReceiveActor {
 

@@ -1,4 +1,4 @@
-﻿namespace DistributedCalculator.CLI.Messages {
+﻿namespace DistributedCalculator.Messages {
     public class ResultNotCachedEventMessage {
         public ResultNotCachedEventMessage(object command) {
             this.command = command;

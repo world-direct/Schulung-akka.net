@@ -1,9 +1,8 @@
 ﻿using System;
 using Akka.Actor;
-using DistributedCalculator.Calculation.Actors;
-using DistributedCalculator.CLI.Messages;
+using DistributedCalculator.Messages;
 
-namespace DistributedCalculator.CLI
+namespace DistributedCalculator.Actors
 {
     public class CliClientActor : ReceiveActor {
         private static readonly string CalculationCoordinatorName = "calculationCoordinator";

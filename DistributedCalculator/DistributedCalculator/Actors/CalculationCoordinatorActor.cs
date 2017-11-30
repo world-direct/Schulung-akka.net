@@ -1,9 +1,9 @@
 ﻿using System;
 using Akka.Actor;
 using Akka.Routing;
-using DistributedCalculator.CLI.Messages;
+using DistributedCalculator.Messages;
 
-namespace DistributedCalculator.Calculation.Actors {
+namespace DistributedCalculator.Actors {
     public class CalculationCoordinatorActor : ReceiveActor {
 
         private static readonly string SumCalculationName = "summationWorker";
@@ -11,8 +11,8 @@ namespace DistributedCalculator.Calculation.Actors {
         
 
         public CalculationCoordinatorActor() {
-            Context.ActorOf(Props.Create<SummationWorkerActor>().WithRouter(FromConfig.Instance), SumCalculationName);
-            Context.ActorOf(Props.Create<UltimateQuestionLifeWorker>().WithRouter(FromConfig.Instance), UltimateQuestionWorker);
+            Context.ActorOf(Props.Create<SummationWorkerActor>(), SumCalculationName);
+            Context.ActorOf(Props.Create<UltimateQuestionLifeWorker>(), UltimateQuestionWorker);
             
             Receive<AddCommandMessage>(x => {
                 Context.Child(SumCalculationName).Forward(x);
@@ -23,7 +23,6 @@ namespace DistributedCalculator.Calculation.Actors {
         protected override void PostStop() {
             base.PostStop();
             Console.WriteLine("CalculationCoordinatorActor stopped");
-
         }
     }
 }

@@ -1,8 +1,5 @@
-﻿using DistributedCalculator.Utility;
+﻿namespace DistributedCalculator.Messages {
 
-namespace DistributedCalculator.CLI.Messages {
-
-    [Immutable]
     public sealed  class InputParsedEventMessage {
         public  CommandType Command { get; }
         public double Operand1 { get; }
