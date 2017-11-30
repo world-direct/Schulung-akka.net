@@ -11,8 +11,8 @@ namespace DistributedCalculator.Actors {
         
 
         public CalculationCoordinatorActor() {
-            Context.ActorOf(Props.Create<SummationWorkerActor>().WithRouter(FromConfig.Instance), SumCalculationName);
-            Context.ActorOf(Props.Create<UltimateQuestionLifeWorker>().WithRouter(FromConfig.Instance), UltimateQuestionWorker);
+            Context.ActorOf(Props.Create<SummationWorkerActor>(), SumCalculationName);
+            Context.ActorOf(Props.Create<UltimateQuestionLifeWorker>(), UltimateQuestionWorker);
             
             Receive<AddCommandMessage>(x => {
                 Context.Child(SumCalculationName).Forward(x);
@@ -23,7 +23,6 @@ namespace DistributedCalculator.Actors {
         protected override void PostStop() {
             base.PostStop();
             Console.WriteLine("CalculationCoordinatorActor stopped");
-
         }
     }
 }
