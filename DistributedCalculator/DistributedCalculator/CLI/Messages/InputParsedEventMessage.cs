@@ -1,6 +1,6 @@
-﻿using SharedCalculation.Utility;
+﻿using DistributedCalculator.Utility;
 
-namespace SharedCalculation.BusinessDomain.CLI.Messages {
+namespace DistributedCalculator.CLI.Messages {
 
     [Immutable]
     public sealed  class InputParsedEventMessage {

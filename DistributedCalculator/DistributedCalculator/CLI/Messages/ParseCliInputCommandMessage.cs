@@ -1,4 +1,4 @@
-namespace SharedCalculation.BusinessDomain.CLI.Messages {
+namespace DistributedCalculator.CLI.Messages {
     public sealed class ParseCliInputCommandMessage {
 
         public string CliInput { get; }

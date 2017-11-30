@@ -1,11 +1,9 @@
 ﻿using System;
 using Akka.Actor;
-using Akka.Routing;
+using DistributedCalculator.Calculation.Actors;
 using DistributedCalculator.CLI.Messages;
-using SharedCalculation.BusinessDomain.Calculation.Actors;
-using SharedCalculation.BusinessDomain.CLI.Messages;
 
-namespace SharedCalculation.BusinessDomain.CLI
+namespace DistributedCalculator.CLI
 {
     public class CliClientActor : ReceiveActor {
         private static readonly string CalculationCoordinatorName = "calculationCoordinator";

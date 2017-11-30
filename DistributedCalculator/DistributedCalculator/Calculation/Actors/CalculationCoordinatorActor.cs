@@ -3,7 +3,7 @@ using Akka.Actor;
 using Akka.Routing;
 using DistributedCalculator.CLI.Messages;
 
-namespace SharedCalculation.BusinessDomain.Calculation.Actors {
+namespace DistributedCalculator.Calculation.Actors {
     public class CalculationCoordinatorActor : ReceiveActor {
 
         private static readonly string SumCalculationName = "summationWorker";
@@ -11,10 +11,12 @@ namespace SharedCalculation.BusinessDomain.Calculation.Actors {
         
 
         public CalculationCoordinatorActor() {
-            Context.ActorOf(Props.Create<SummationWorkerActor>(), SumCalculationName);
-            Context.ActorOf(Props.Create<UltimateQuestionLifeWorker>(), UltimateQuestionWorker);
+            Context.ActorOf(Props.Create<SummationWorkerActor>().WithRouter(FromConfig.Instance), SumCalculationName);
+            Context.ActorOf(Props.Create<UltimateQuestionLifeWorker>().WithRouter(FromConfig.Instance), UltimateQuestionWorker);
             
-            Receive<AddCommandMessage>(x => Context.Child(SumCalculationName).Forward(x));
+            Receive<AddCommandMessage>(x => {
+                Context.Child(SumCalculationName).Forward(x);
+            });
             Receive<AnwserUltimateQuestioCommandMessage>(x => Context.Child(UltimateQuestionWorker).Forward(x));
         }
 

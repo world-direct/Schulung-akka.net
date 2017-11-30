@@ -1,7 +1,7 @@
 ﻿using System;
 using Akka.Actor;
+using DistributedCalculator.CLI;
 using DistributedCalculator.CLI.Messages;
-using SharedCalculation.BusinessDomain.CLI;
 
 namespace DistributedCalculator {
     internal class Program {

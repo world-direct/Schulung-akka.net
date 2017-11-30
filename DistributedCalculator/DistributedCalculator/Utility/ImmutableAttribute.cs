@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SharedCalculation.Utility {
+namespace DistributedCalculator.Utility {
     public class ImmutableAttribute : Attribute{
         
     }

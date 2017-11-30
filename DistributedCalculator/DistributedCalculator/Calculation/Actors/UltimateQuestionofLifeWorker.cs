@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Threading;
-using System.Threading.Tasks;
 using Akka.Actor;
 using DistributedCalculator.CLI.Messages;
 
-namespace SharedCalculation.BusinessDomain.Calculation.Actors
+namespace DistributedCalculator.Calculation.Actors
 {
     public class UltimateQuestionLifeWorker : ReceiveActor {
 

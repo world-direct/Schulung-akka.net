@@ -1,9 +1,8 @@
 ﻿using System;
 using Akka.Actor;
 using DistributedCalculator.CLI.Messages;
-using SharedCalculation.BusinessDomain.CLI.Messages;
 
-namespace SharedCalculation.BusinessDomain.CLI {
+namespace DistributedCalculator.CLI {
     public class CliReaderActor : ReceiveActor {
         private static readonly string CLI_COMMAND_PARSER_NAME = "commandParser";
 
