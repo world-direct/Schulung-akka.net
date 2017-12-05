@@ -17,7 +17,7 @@ namespace SharedCalculation.BusinessDomain.Calculation.Actors.CalculationResult 
             Receive<UltimateQuestionCommandMessage>(x => HandleUltimateQuestion(x));
             Receive<ResultCalculatedEventMessage>(x => HandleCalculationResult(x));
 
-            DistributedPubSub.Get(Context.System).Mediator.Tell(new Subscribe("resultCache", Self));
+            //DistributedPubSub.Get(Context.System).Mediator.Tell(new Subscribe("resultCache", Self));
 
         }
 

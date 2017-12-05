@@ -16,7 +16,7 @@ namespace SharedCalculation.BusinessDomain.Calculation.Actors
 
         protected override void PreStart() {
             base.PreStart();
-            cacheResultPublisher = DistributedPubSub.Get(Context.System).Mediator;
+            //cacheResultPublisher = DistributedPubSub.Get(Context.System).Mediator;
         }
 
         private void HandleAddMessage(AddCommandMessage addCommandMessage) {
@@ -25,7 +25,7 @@ namespace SharedCalculation.BusinessDomain.Calculation.Actors
             var result = addCommandMessage.Summand1 + addCommandMessage.Summand2;
             var resultMessage = new ResultCalculatedEventMessage(result, addCommandMessage);
             addCommandMessage.ResultReceiver.Tell(resultMessage);
-            cacheResultPublisher.Tell(new Publish("resultCache", resultMessage));
+            //cacheResultPublisher.Tell(new Publish("resultCache", resultMessage));
         }
     }
 }

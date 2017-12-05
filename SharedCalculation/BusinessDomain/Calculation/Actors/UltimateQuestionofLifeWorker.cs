@@ -18,7 +18,7 @@ namespace SharedCalculation.BusinessDomain.Calculation.Actors
 
         protected override void PreStart() {
             base.PreStart();
-            cacheResultPublisher = DistributedPubSub.Get(Context.System).Mediator;
+            //cacheResultPublisher = DistributedPubSub.Get(Context.System).Mediator;
         }
 
         private void HandleUltimateQuestion(UltimateQuestionCommandMessage addMessage) {
@@ -27,7 +27,7 @@ namespace SharedCalculation.BusinessDomain.Calculation.Actors
               Thread.Sleep(TimeSpan.FromSeconds(3));
             var resultMessage = new ResultCalculatedEventMessage(42, addMessage);
             addMessage.ResultReceiver.Tell(resultMessage);
-            cacheResultPublisher.Tell(new Publish("resultCache", resultMessage));
+            //cacheResultPublisher.Tell(new Publish("resultCache", resultMessage));
         }
     }
 }

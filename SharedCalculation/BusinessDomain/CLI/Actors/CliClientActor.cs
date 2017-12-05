@@ -13,7 +13,7 @@ namespace SharedCalculation.BusinessDomain.CLI.Actors {
         
             public CliClientActor()
             {
-                Context.ActorOf(Props.Create<CalculationCoordinatorActor>(), CalculationCoordinatorName);
+                Context.ActorOf(Props.Create<CalculationCoordinatorActor>().WithRouter(FromConfig.Instance), CalculationCoordinatorName);
                 Context.ActorOf(Props.Create<CliReaderActor>(), CONSOLE_READER_NAME);
 
                 Receive<AskUserForInputCommandMessage>(x => HandleAskUserForInput(x));
