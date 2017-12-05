@@ -7,7 +7,6 @@ using SharedCalculation.BusinessDomain.CLI.Messages;
 
 namespace SharedCalculation.BusinessDomain.CLI.Actors {
     public partial class CliClientActor : ReceiveActor {
-        private static readonly string CLI_COMMAND_PARSER_NAME = "commandParser";
         private static readonly string CalculationCoordinatorName = "calculationCoordinators";
         private static readonly string CONSOLE_READER_NAME = "consoleReader";
         
