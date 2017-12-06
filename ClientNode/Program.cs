@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 using Akka.Actor;
+using Petabridge.Cmd.Cluster;
+using Petabridge.Cmd.Host;
 using SharedCalculation.BusinessDomain.CLI.Actors;
 
 namespace ClientNode
@@ -15,6 +17,9 @@ namespace ClientNode
             system = ActorSystem.Create("calculation");
 
             var clientActor = system.ActorOf(Props.Create<CliClientActor>(), "cliClient");
+            var cmd = PetabridgeCmd.Get(system);
+            cmd.RegisterCommandPalette(ClusterCommands.Instance);
+            cmd.Start();
 
             clientActor.Tell(new AskUserForInputCommandMessage("Frage.."));
 

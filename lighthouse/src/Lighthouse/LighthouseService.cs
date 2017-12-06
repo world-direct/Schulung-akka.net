@@ -12,6 +12,7 @@
 // specific language governing permissions and limitations under the License.
 using System.Threading.Tasks;
 using Akka.Actor;
+using Petabridge.Cmd.Host;
 
 namespace Lighthouse
 {
@@ -33,6 +34,8 @@ namespace Lighthouse
         public void Start()
         {
             _lighthouseSystem = LighthouseHostFactory.LaunchLighthouse(_ipAddress, _port);
+            var cmd = PetabridgeCmd.Get(_lighthouseSystem);
+            //cmd.Start();
         }
 
         public async Task StopAsync()

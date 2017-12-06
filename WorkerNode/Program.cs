@@ -5,6 +5,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using Akka.Actor;
+using Petabridge.Cmd.Host;
 using SharedCalculation.BusinessDomain.Calculation.Actors;
 
 namespace WorkerNode {
@@ -20,6 +21,9 @@ namespace WorkerNode {
 
             Console.WriteLine("WORKER");
             system = ActorSystem.Create("calculation");
+            var cmd = PetabridgeCmd.Get(system);
+            //cmd.Start();
+
 
             //system.ActorOf(Props.Create<CalculationCoordinatorActor>(), "calculationCoordinator");
 
